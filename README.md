@@ -52,3 +52,8 @@ See the [Private API Calling Patterns guide](Docs/private-api-calling-patterns.m
 ## Workshop Theme Ideas
 
 See the [Workshop Theme Ideas guide](Docs/workshop-theme-ideas.md).
+
+## Interoperability Requests
+
+- To submit an interoperability request, see [Interoperability requests](https://developer.apple.com/support/interoperability-requests/).
+- To browse the current request list, see the [Interoperability request tracker](https://developer.apple.com/file/?file=interoperability-request-tracker).
