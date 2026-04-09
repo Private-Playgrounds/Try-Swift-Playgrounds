@@ -43,8 +43,8 @@ List {
 
 ## Start Exploring
 
-See the [Start Exploring guide](docs/start-exploring.md).
+See the [Start Exploring guide](Docs/start-exploring.md).
 
 ## Workshop Theme Ideas
 
-See the [Workshop Theme Ideas guide](docs/workshop-theme-ideas.md).
+See the [Workshop Theme Ideas guide](Docs/workshop-theme-ideas.md).
