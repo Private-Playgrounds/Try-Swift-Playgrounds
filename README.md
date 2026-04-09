@@ -45,6 +45,10 @@ List {
 
 See the [Start Exploring guide](Docs/start-exploring.md).
 
+## From Slides to Workshop
+
+See the [From Slides to Workshop guide](Docs/from-slides-to-workshop.md).
+
 ## Workshop Theme Ideas
 
 See the [Workshop Theme Ideas guide](Docs/workshop-theme-ideas.md).

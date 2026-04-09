@@ -37,3 +37,7 @@ Inspect method information in more detail.
 ```lldb
 po [[NSClassFromString(@"UIViewController") new] _methodDescription]
 ```
+
+## Continue to the Workshop
+
+After the slides, move to the [From Slides to Workshop guide](from-slides-to-workshop.md) to pick a concrete calling pattern and sample.
