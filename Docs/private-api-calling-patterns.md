@@ -8,18 +8,18 @@ This page maps the calling patterns from the presentation to small samples in th
 
 Use this when you know the property name as a string and want to set it through Objective-C Key-Value Coding.
 
-- Sample: [`Playgrounds/WorkshopSample/UIAlertController/UIAlertControllerSampleView.swift`](../Playgrounds/WorkshopSample/UIAlertController/UIAlertControllerSampleView.swift)
+- Sample: [`UIAlertControllerSampleView.swift:29`](../Playgrounds/WorkshopSample/UIAlertController/UIAlertControllerSampleView.swift#L29)
 
 ### [Dynamic dispatch](private-api-calling-patterns/dynamic-dispatch.md)
 
 Use this when you know a selector name and want to call it dynamically from Swift.
 
-- Sample: [`Playgrounds/WorkshopSample/ScrollToTopIfPossibleView/ScrollToTopIfPossibleView.swift`](../Playgrounds/WorkshopSample/ScrollToTopIfPossibleView/ScrollToTopIfPossibleView.swift)
+- Sample: [`ScrollToTopIfPossibleView.swift:75`](../Playgrounds/WorkshopSample/ScrollToTopIfPossibleView/ScrollToTopIfPossibleView.swift#L75)
 
 ### [Adding a minimal Objective-C header](private-api-calling-patterns/adding-header-files.md)
 
 Use this when you want to expose a private Objective-C type to Swift and refer to it directly by name.
 
-- Sample: [`Playgrounds/WorkshopSample/UIPortalView/_UIPortalView.h`](../Playgrounds/WorkshopSample/UIPortalView/_UIPortalView.h)
+- Sample: [`_UIPortalView.h:9`](../Playgrounds/WorkshopSample/UIPortalView/_UIPortalView.h#L9)
 
 If you need to discover the key, selector, or class name first, see the [Start Exploring guide](start-exploring.md).
