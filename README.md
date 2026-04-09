@@ -45,9 +45,9 @@ List {
 
 See the [Start Exploring guide](Docs/start-exploring.md).
 
-## From Slides to Workshop
+## Private API Calling Patterns
 
-See the [From Slides to Workshop guide](Docs/from-slides-to-workshop.md).
+See the [Private API Calling Patterns guide](Docs/private-api-calling-patterns.md).
 
 ## Workshop Theme Ideas
 
