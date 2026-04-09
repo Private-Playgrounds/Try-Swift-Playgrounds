@@ -1,6 +1,6 @@
 # Workshop Theme Ideas
 
-These are just starting points 🚀 Feel free to explore beyond them and try any fun idea that catches your interest.
+### These are just starting points 🚀 Feel free to explore beyond them and try any fun idea that catches your interest.
 
 `★` shows the difficulty level.
 
