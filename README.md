@@ -45,6 +45,10 @@ List {
 
 See the [Start Exploring guide](Docs/start-exploring.md).
 
+## Private API Calling Patterns
+
+See the [Private API Calling Patterns guide](Docs/private-api-calling-patterns.md).
+
 ## Workshop Theme Ideas
 
 See the [Workshop Theme Ideas guide](Docs/workshop-theme-ideas.md).
