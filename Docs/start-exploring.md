@@ -14,41 +14,25 @@ When you start looking for private APIs, it is easier to grasp the big picture b
 
 ### Commands
 
-#### `_ivarDescription`
+#### [`_ivarDescription`](start-exploring/ivar-description.md)
 
-Use `_ivarDescription` to check the list of instance variables.
+Check the list of instance variables for a specific object.
 
 ```lldb
 po [(id)0x105a3a2b0 _ivarDescription]
 ```
 
-The following screenshots show the basic flow in Xcode's debugger.
+#### [`_shortMethodDescription`](start-exploring/short-method-description.md)
 
-![Open the debugger area in Xcode](images/po_ivarDescription_1.webp)
-
-![Run `_ivarDescription` with the object's address](images/po_ivarDescription_2.webp)
-
-![Inspect the ivar list in the debugger console](images/po_ivarDescription_3.webp)
-
-#### `_shortMethodDescription`
-
-Use `_shortMethodDescription` to quickly inspect the available methods.
+Quickly inspect the available methods on a class or object.
 
 ```lldb
 po [[NSClassFromString(@"UIViewController") new] _shortMethodDescription]
 ```
 
-The following screenshots show the basic flow in Xcode's debugger.
+#### [`_methodDescription`](start-exploring/method-description.md)
 
-![Open the project in Xcode](images/po_shortMethodDescription_1.webp)
-
-![Run a `po` command in the debugger console](images/po_shortMethodDescription_2.webp)
-
-![Inspect the output and search for interesting names](images/po_shortMethodDescription_3.webp)
-
-#### `_methodDescription`
-
-Use `_methodDescription` to inspect the methods in more detail.
+Inspect method information in more detail.
 
 ```lldb
 po [[NSClassFromString(@"UIViewController") new] _methodDescription]
