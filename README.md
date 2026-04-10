@@ -32,7 +32,6 @@ List {
     } label: {
         Text("Workshop Sample")
     }
-    
 }
 ```
 
