@@ -36,10 +36,16 @@ List {
 }
 ```
 
-## Notes
+## Repository Layout
 
-- Use your participant name for the folder, for example `Playgrounds/Alex/`.
-- Use a clear label in `Playgrounds/ContentView.swift` so people can find your work quickly.
+```text
+Playgrounds/
+  ContentView.swift         # Register your NavigationLink here with a clear label
+  WorkshopSample/           # Reference implementation for participants
+  <ParticipantName>/        # Add your work here, for example `Alex`
+Docs/                       # Guides for exploration, private API patterns, and workshop ideas
+PrivateInterfaces/          # Reference interface files used in the workshop
+```
 
 ## Start Exploring
 

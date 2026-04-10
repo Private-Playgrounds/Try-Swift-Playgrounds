@@ -1,16 +1,11 @@
 # Start Exploring
 
-When you start looking for private APIs, it is easier to grasp the big picture by first finding the name, checking the declarations, and then comparing them with runtime information.
-
-## Explore with headers.82flex.com
-
-- [headers.82flex.com](https://headers.82flex.com) lists the header files for iOS frameworks.
-- It is ideal when you want to search by name first or investigate what is defined in which type.
+When you start looking for private APIs, begin with runtime inspection so you can see what is actually present on the object in front of you. After that, use declarations and headers to broaden the search.
 
 ## Explore with po
 
 - po allows you to check raw data from runtime objects.
-- It is suitable when you already know the target view or object and want to see what is visible at runtime.
+- Start here when you already know the target view or object and want to inspect what is visible at runtime.
 
 ### Commands
 
@@ -37,3 +32,8 @@ Inspect method information in more detail.
 ```lldb
 po [[NSClassFromString(@"UIViewController") new] _methodDescription]
 ```
+
+## Explore with headers.82flex.com
+
+- [headers.82flex.com](https://headers.82flex.com) is a convenient site for browsing iOS framework headers.
+- Use it when you want to search by name quickly or get a rough sense of where a type is declared.
