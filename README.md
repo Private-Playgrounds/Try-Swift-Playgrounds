@@ -79,7 +79,7 @@ Use these patterns after you know the key, selector, or class name you want to t
 | --- | --- |
 | [Key-Value Coding](Docs/private-api-calling-patterns/key-value-coding.md) | You know the property name and want to set it through Objective-C Key-Value Coding. |
 | [Calling Objective-C Methods by Selector](Docs/private-api-calling-patterns/calling-objective-c-methods-by-selector.md) | You know the selector name and want to call the Objective-C method from Swift. |
-| [Adding a minimal Objective-C header](Docs/private-api-calling-patterns/adding-header-files.md) | You want to expose a private Objective-C type to Swift and refer to it directly by name. |
+| [Adding an Objective-C Header](Docs/private-api-calling-patterns/adding-header-files.md) | You want to expose a private Objective-C type to Swift and refer to it directly by name. |
 
 ## Workshop Theme Ideas
 
