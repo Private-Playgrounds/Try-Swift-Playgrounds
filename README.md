@@ -14,7 +14,7 @@ Create your folder, add your view, and make it available from the list in `Playg
 5. Register your entry in `Playgrounds/ContentView.swift` with a new `NavigationLink`.
 6. Run the `Playgrounds` scheme and confirm your entry appears in the list.
 
-## Example
+### Example
 
 ```swift
 List {
@@ -36,7 +36,7 @@ List {
 }
 ```
 
-## Repository Layout
+### Repository Layout
 
 ```text
 Playgrounds/
@@ -49,15 +49,54 @@ PrivateInterfaces/          # Reference interface files used in the workshop
 
 ## Start Exploring
 
-See the [Start Exploring guide](Docs/start-exploring.md).
+When you start looking for private APIs, begin with runtime inspection so you can see what is actually present on the object in front of you. After that, use declarations and headers to broaden the search.
+
+### Explore with po
+
+- `po` allows you to check raw data from runtime objects.
+- Start here when you already know the target view or object and want to inspect what is visible at runtime.
+
+#### Commands
+
+| Command | What it shows |
+| --- | --- |
+| [`_ivarDescription`](Docs/start-exploring/ivar-description.md) | Check the list of instance variables for a specific object. |
+| [`_shortMethodDescription`](Docs/start-exploring/short-method-description.md) | Quickly inspect the available methods on a class or object. |
+| [`_methodDescription`](Docs/start-exploring/method-description.md) | Inspect method information in more detail. |
+
+### Explore with headers.82flex.com
+
+- [headers.82flex.com](https://headers.82flex.com) is a convenient site for browsing iOS framework headers.
+- Use it when you want to search by name quickly or get a rough sense of where a type is declared.
 
 ## Private API Calling Patterns
 
-See the [Private API Calling Patterns guide](Docs/private-api-calling-patterns.md).
+These are the main calling patterns used in the workshop samples.
+
+Use these patterns after you know the key, selector, or class name you want to try.
+
+| Pattern | Use it when |
+| --- | --- |
+| [`setValue(_:forKey:)`](Docs/private-api-calling-patterns/set-value.md) | You know the property name as a string and want to set it through Objective-C Key-Value Coding. |
+| [Dynamic dispatch](Docs/private-api-calling-patterns/dynamic-dispatch.md) | You know a selector name and want to call it dynamically from Swift. |
+| [Adding a minimal Objective-C header](Docs/private-api-calling-patterns/adding-header-files.md) | You want to expose a private Objective-C type to Swift and refer to it directly by name. |
 
 ## Workshop Theme Ideas
 
-See the [Workshop Theme Ideas guide](Docs/workshop-theme-ideas.md).
+These are just starting points 🚀 Feel free to explore beyond them and try any fun idea that catches your interest.
+
+See [Workshop Theme Ideas](Docs/workshop-theme-ideas.md) for previews and more details.
+
+| Difficulty | Theme |
+| --- | --- |
+| ★ | Show a custom view controller above the message area of `UIAlertController`. |
+| ★ | Present `UISheetPresentationController` as a full-screen sheet with interactive dismissal, like Apple Music Now Playing. |
+| ★★ | Show a `Menu` independently from its source view with `showsMenuFromSource`. |
+| ★★ | Apply `VariableBlur` to any view with `UIBlurEffect`. |
+| ★★ | Show `UISheetPresentationController` from the left side on iPad. |
+| ★★ | Show a custom view inside `UIMenu`. |
+| ★★★ | Keep the background glassy for `UISheetPresentationController` even with the large detent. |
+| ★★★★★ | Enable glass on the medium detent of `UISheetPresentationController`. The default medium detent looks subdued. |
 
 ## Interoperability Requests
 
