@@ -1,12 +1,12 @@
 # Key-Value Coding
 
-Use this when you want to set an Objective-C property from Swift with Key-Value Coding.
+Use this when you want to get or set an Objective-C property from Swift with Key-Value Coding.
 
 ## When to Use It
 
 - You know the property name.
 - The target object is Objective-C based and responds to key-value coding.
-- You want to try a small change first.
+- You want to read or change a property by name.
 
 ## Repo Example
 
@@ -19,9 +19,18 @@ alertController.setValue(imageViewController, forKey: "contentViewController")
 
 This lets the alert embed a custom view controller even though `UIAlertController` does not publicly expose that slot.
 
+When you want to read a property instead, the same pattern looks like this:
+
+```swift
+if let contentViewController = alertController.value(forKey: "contentViewController") as? UIViewController {
+    print(contentViewController)
+}
+```
+
 ## Notes
 
-- `setValue(_:forKey:)` accesses a property indirectly by name.
+- `value(forKey:)` reads a property by name.
+- `setValue(_:forKey:)` writes a property by name.
 - The key is a raw string, so typos usually fail at runtime instead of compile time.
 - Start with one key at a time. It is easier to verify a small change first.
 
