@@ -71,14 +71,15 @@ When you start looking for private APIs, begin with runtime inspection so you ca
 
 ## Private API Calling Patterns
 
-These are the main calling patterns used in the workshop samples.
+These are the main calling patterns covered in the workshop docs and samples.
 
-Use these patterns after you know the key, selector, or class name you want to try.
+Use these patterns after you know the key, selector, symbol, or class name you want to try.
 
 | Pattern | Use it when |
 | --- | --- |
-| [Key-Value Coding](Docs/private-api-calling-patterns/key-value-coding.md) | You know the property name and want to set it through Objective-C Key-Value Coding. |
+| [Key-Value Coding](Docs/private-api-calling-patterns/key-value-coding.md) | You know the property name and want to read or set it through Objective-C Key-Value Coding. |
 | [Calling Objective-C Methods by Selector](Docs/private-api-calling-patterns/calling-objective-c-methods-by-selector.md) | You know the selector name and want to call the Objective-C method from Swift. |
+| [Resolving Symbols with dlsym](Docs/private-api-calling-patterns/resolving-symbols-with-dlsym.md) | You know the exported symbol name and want to resolve it at runtime with `dlsym()`. |
 | [Adding an Objective-C Header](Docs/private-api-calling-patterns/adding-header-files.md) | You want to expose a private Objective-C type to Swift and refer to it directly by name. |
 
 ## Workshop Theme Ideas

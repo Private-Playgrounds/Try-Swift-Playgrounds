@@ -35,4 +35,4 @@ This sample builds a selector from a string, checks that the target responds to 
 - This sample uses `method(for:)` because `_scrollToTopIfPossible:` takes a `Bool` and returns a `Bool`, so the function signature needs to match the real method.
 - If the signature is wrong, dynamic calls can crash quickly, so treat the function type as part of the API contract.
 
-If you only have a property name and not a selector, the [Key-Value Coding guide](key-value-coding.md) is usually the easier first step.
+If you only have a property name and not a selector, the [Key-Value Coding guide](key-value-coding.md) is usually the easier first step. If you need to resolve an exported C symbol instead, see [Resolving Symbols with dlsym](resolving-symbols-with-dlsym.md).
