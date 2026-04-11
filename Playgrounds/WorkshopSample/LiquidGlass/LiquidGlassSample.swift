@@ -19,7 +19,7 @@ struct LiquidGlassSample: View {
         .init(title: "inspector", variant: .inspector),
         .init(title: "regular", variant: .regular),
         .init(title: "focusBorder", variant: .focusBorder),
-        .init(title: "appIcons", variant: .appIcons),
+        .init(title: "regular.forceSubdued()", variant: .regular.forceSubdued()),
         .init(title: "facetime", variant: .facetime),
         .init(title: "text", variant: .text),
         .init(title: "widgets", variant: .widgets),
@@ -27,7 +27,7 @@ struct LiquidGlassSample: View {
         .init(title: "sidebar", variant: .sidebar),
         .init(title: "abuttedSidebar", variant: .abuttedSidebar),
         .init(title: "clear", variant: .clear),
-        .init(title: "appIcons(tint: .teal)", variant: .appIcons(tint: .teal))
+        .init(title: "widgets(tint: .teal)", variant: .widgets(tint: .teal))
     ]
     var body: some View {
         ScrollView {
