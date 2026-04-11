@@ -7,12 +7,17 @@ Create your folder, add your view, and make it available from the list in `Playg
 
 ## Add Your Work
 
-1. Open `Playgrounds.xcodeproj` in Xcode.
-2. Create a folder for your work at `Playgrounds/<ParticipantName>/`.
-3. Use `Playgrounds/WorkshopSample/WorkshopSampleView.swift` as a reference for your view.
-4. Add your Swift files inside `Playgrounds/<ParticipantName>/`.
-5. Register your entry in `Playgrounds/ContentView.swift` with a new `NavigationLink`.
-6. Run the `Playgrounds` scheme and confirm your entry appears in the list.
+Work on your own branch and merge your changes through a pull request.
+
+1. Create a branch for your work.
+2. Open `Playgrounds.xcodeproj` in Xcode.
+3. Create a folder for your work at `Playgrounds/<ParticipantName>/`.
+4. Use the samples in `Playgrounds/WorkshopSample/` as references for your view.
+5. Add your Swift files inside `Playgrounds/<ParticipantName>/`.
+6. Register your entry in `Playgrounds/ContentView.swift` with a new `NavigationLink`.
+7. Run the `Playgrounds` scheme and confirm your entry appears in the list.
+8. Commit and push your branch.
+9. Open a pull request into `main`, then merge it when your sample is ready. You do not need to wait for workshop staff approval.
 
 ### Example
 
