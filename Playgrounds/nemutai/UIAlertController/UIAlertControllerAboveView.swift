@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct UIAlertControllerAboveView: View {
+struct Satomasahiro2005View: View {
     @EnvironmentObject private var sceneDelegate: SceneDelegate
     var body: some View {
         VStack {
@@ -14,7 +14,7 @@ struct UIAlertControllerAboveView: View {
             }
             .buttonStyle(.glassProminent)
         }
-        .navigationTitle("UIAlertController")
+        .navigationTitle("@satomasahiro2005")
     }
 
     enum AlertPresenter {
@@ -62,6 +62,6 @@ struct UIAlertControllerAboveView: View {
 
 #Preview {
     NavigationStack {
-        UIAlertControllerAboveView()
+        Satomasahiro2005View()
     }
 }

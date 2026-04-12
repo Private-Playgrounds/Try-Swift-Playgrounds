@@ -35,7 +35,7 @@ public struct ContentView: View {
                         Text("LiquidGlassSample")
                     }
                     NavigationLink{
-                        UIAlertControllerAboveView()
+                        Satomasahiro2005View()
                     } label: {
                         Text("@satomasahiro2005")
                     }
