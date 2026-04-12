@@ -50,6 +50,9 @@ public struct ContentView: View {
                         Text("LiquidGlassSample")
                     }
                     NavigationLink {
+                        DancingGiginetAppIconView()
+                    } label: {
+                        Text("Dancing giginet AppIcon")
                         QuietlySetVariantIndexView()
                     } label: {
                         Text("_quietlySetVariantIndex")
