@@ -53,6 +53,8 @@ public struct ContentView: View {
                         NowPlayingSheetView()
                     } label: {
                         Text("NowPlaying Sheet")
+                    }
+                    NavigationLink {
                         DancingGiginetAppIconView()
                     } label: {
                         Text("Dancing giginet AppIcon")
