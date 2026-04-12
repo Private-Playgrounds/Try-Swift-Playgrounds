@@ -44,6 +44,11 @@ public struct ContentView: View {
                     } label: {
                         Text("LiquidGlassSample")
                     }
+                    NavigationLink {
+                        NowPlayingSheetView()
+                    } label: {
+                        Text("NowPlaying Sheet")
+                    }
                 }
                 .navigationTitle("Playgrounds")
             }
