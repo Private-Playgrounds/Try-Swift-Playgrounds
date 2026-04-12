@@ -34,6 +34,11 @@ public struct ContentView: View {
                     } label: {
                         Text("LiquidGlassSample")
                     }
+                    NavigationLink{
+                        UIAlertControllerAboveView()
+                    } label: {
+                        Text("@satomasahiro2005")
+                    }
                 }
                 .navigationTitle("Playgrounds")
             }
