@@ -53,6 +53,8 @@ public struct ContentView: View {
                         VideoTabBarView()
                     } label: {
                         Text("Video TabBar")
+                    }
+                    NavigationLink {
                         NowPlayingSheetView()
                     } label: {
                         Text("NowPlaying Sheet")
@@ -91,6 +93,8 @@ public struct ContentView: View {
                         FullscrennInteractiveDismissView()
                     } label: {
                         Text("zunda's FullscrennInteractiveDismiss")
+                    }
+                    NavigationLink {
                         UISheetPresentationControllerSample()
                     } label: {
                         Text("auramagi UISheetPresentationControllerSample")
