@@ -87,6 +87,11 @@ public struct ContentView: View {
                     } label: {
                         Text("soh's Playground")
                     }
+                    NavigationLink {
+                        UISheetPresentationControllerSample()
+                    } label: {
+                        Text("auramagi UISheetPresentationControllerSample")
+                    }
                 }
                 .navigationTitle("Playgrounds")
             }
