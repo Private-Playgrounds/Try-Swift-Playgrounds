@@ -50,6 +50,9 @@ public struct ContentView: View {
                         Text("LiquidGlassSample")
                     }
                     NavigationLink {
+                        NowPlayingSheetView()
+                    } label: {
+                        Text("NowPlaying Sheet")
                         DancingGiginetAppIconView()
                     } label: {
                         Text("Dancing giginet AppIcon")
