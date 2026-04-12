@@ -88,6 +88,9 @@ public struct ContentView: View {
                         Text("soh's Playground")
                     }
                     NavigationLink {
+                        FullscrennInteractiveDismissView()
+                    } label: {
+                        Text("zunda's FullscrennInteractiveDismiss")
                         UISheetPresentationControllerSample()
                     } label: {
                         Text("auramagi UISheetPresentationControllerSample")
