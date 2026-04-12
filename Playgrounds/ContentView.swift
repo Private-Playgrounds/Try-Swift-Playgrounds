@@ -49,6 +49,10 @@ public struct ContentView: View {
                     } label: {
                         Text("LiquidGlassSample")
                     }
+                    NavigationLink {
+                        QuietlySetVariantIndexView()
+                    } label: {
+                        Text("_quietlySetVariantIndex")
                     NavigationLink{
                         Satomasahiro2005View()
                     } label: {
