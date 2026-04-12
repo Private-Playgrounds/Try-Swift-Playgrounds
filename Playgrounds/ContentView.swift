@@ -10,6 +10,11 @@ public struct ContentView: View {
                     // Add one entry per participant here.
                     // Keep your view in `Playgrounds/<ParticipantName>/`.
                     NavigationLink {
+                        TextFieldWithVisibilityToggle()
+                    } label: {
+                        Text("TextField with visibility toggle")
+                    }
+                    NavigationLink {
                         UIAlertControllerSampleView()
                     } label: {
                         Text("Custom UIAlertController")
