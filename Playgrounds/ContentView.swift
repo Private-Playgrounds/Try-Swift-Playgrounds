@@ -50,6 +50,14 @@ public struct ContentView: View {
                         Text("LiquidGlassSample")
                     }
                     NavigationLink {
+                        VideoTabBarView()
+                    } label: {
+                        Text("Video TabBar")
+                        NowPlayingSheetView()
+                    } label: {
+                        Text("NowPlaying Sheet")
+                    }
+                    NavigationLink {
                         DancingGiginetAppIconView()
                     } label: {
                         Text("Dancing giginet AppIcon")
@@ -83,6 +91,9 @@ public struct ContentView: View {
                         FullscrennInteractiveDismissView()
                     } label: {
                         Text("zunda's FullscrennInteractiveDismiss")
+                        UISheetPresentationControllerSample()
+                    } label: {
+                        Text("auramagi UISheetPresentationControllerSample")
                     }
                 }
                 .navigationTitle("Playgrounds")
