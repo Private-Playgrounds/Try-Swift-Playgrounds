@@ -1,4 +1,15 @@
-<img width="2940" height="1540" alt="image" src="https://github.com/user-attachments/assets/3e4013b4-8f81-49df-a946-db54ca45a68f" />
+> [!WARNING]
+> **Public APIs Only**
+>
+> - App Store apps may **only use public APIs**.
+>
+> - This workshop is **not about shipping to the App Store**.
+>
+> - Today's examples are for **debugging and personal experimentation**.
+>
+> ---
+> App Review Guidelines 2.5.1  
+> https://developer.apple.com/app-store/review/guidelines/#software-requirements
 
 # Try Swift Playgrounds
 
