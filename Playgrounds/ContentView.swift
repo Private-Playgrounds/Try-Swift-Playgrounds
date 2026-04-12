@@ -49,6 +49,11 @@ public struct ContentView: View {
                     } label: {
                         Text("FullscreenSheetController by rikusouda")
                     }
+                    NavigationLink {
+                        NumberPadAlertControllerView()
+                    } label: {
+                        Text("NumberPadAlertControllerView")
+                    }
                 }
                 .navigationTitle("Playgrounds")
             }
