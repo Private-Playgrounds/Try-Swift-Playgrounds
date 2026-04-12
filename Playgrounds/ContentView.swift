@@ -34,6 +34,11 @@ public struct ContentView: View {
                     } label: {
                         Text("LiquidGlassSample")
                     }
+                    NavigationLink {
+                        DancingGiginetAppIconView()
+                    } label: {
+                        Text("Dancing giginet AppIcon")
+                    }
                 }
                 .navigationTitle("Playgrounds")
             }
