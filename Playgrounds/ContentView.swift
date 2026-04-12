@@ -99,6 +99,11 @@ public struct ContentView: View {
                     } label: {
                         Text("auramagi UISheetPresentationControllerSample")
                     }
+                    NavigationLink {
+                        ModdedUIMenuView()
+                    } label: {
+                        Text("hume Playground")
+                    }
                 }
                 .navigationTitle("Playgrounds")
             }
