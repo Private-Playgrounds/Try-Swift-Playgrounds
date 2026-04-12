@@ -50,6 +50,9 @@ public struct ContentView: View {
                         Text("LiquidGlassSample")
                     }
                     NavigationLink{
+                        Satomasahiro2005View()
+                    } label: {
+                        Text("@satomasahiro2005")
                         FullscreenSheetControllerRikusouda()
                     } label: {
                         Text("FullscreenSheetController by rikusouda")
