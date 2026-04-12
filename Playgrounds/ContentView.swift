@@ -79,6 +79,11 @@ public struct ContentView: View {
                     } label: {
                         Text("soh's Playground")
                     }
+                    NavigationLink {
+                        FullscrennInteractiveDismissView()
+                    } label: {
+                        Text("zunda's FullscrennInteractiveDismiss")
+                    }
                 }
                 .navigationTitle("Playgrounds")
             }
