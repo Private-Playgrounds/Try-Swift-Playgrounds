@@ -10,6 +10,11 @@ public struct ContentView: View {
                     // Add one entry per participant here.
                     // Keep your view in `Playgrounds/<ParticipantName>/`.
                     NavigationLink {
+                        CustomAlertView()
+                    } label: {
+                        Text("tomoEng11 CustomAlert")
+                    }
+                    NavigationLink {
                         UIAlertControllerSampleView()
                     } label: {
                         Text("Custom UIAlertController")
