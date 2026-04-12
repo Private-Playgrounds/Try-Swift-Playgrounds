@@ -8,8 +8,7 @@
 > - Today's examples are for **debugging and personal experimentation**.
 >
 > ---
-> App Review Guidelines 2.5.1  
-> https://developer.apple.com/app-store/review/guidelines/#software-requirements
+> [App Review Guidelines 2.5.1](https://developer.apple.com/app-store/review/guidelines/#software-requirements)
 
 # Try Swift Playgrounds
 
