@@ -10,6 +10,11 @@ public struct ContentView: View {
                     // Add one entry per participant here.
                     // Keep your view in `Playgrounds/<ParticipantName>/`.
                     NavigationLink {
+                        TextFieldWithVisibilityToggle()
+                    } label: {
+                        Text("TextField with visibility toggle")
+                    }
+                    NavigationLink {
                         CustomAlertView()
                     } label: {
                         Text("tomoEng11 CustomAlert")
@@ -48,6 +53,34 @@ public struct ContentView: View {
                         NowPlayingSheetView()
                     } label: {
                         Text("NowPlaying Sheet")
+                        DancingGiginetAppIconView()
+                    } label: {
+                        Text("Dancing giginet AppIcon")
+                    }
+                    NavigationLink {
+                        QuietlySetVariantIndexView()
+                    } label: {
+                        Text("_quietlySetVariantIndex")
+                    }
+                    NavigationLink{
+                        Satomasahiro2005View()
+                    } label: {
+                        Text("@satomasahiro2005")
+                    }
+                    NavigationLink {
+                        FullscreenSheetControllerRikusouda()
+                    } label: {
+                        Text("FullscreenSheetController by rikusouda")
+                    }
+                    NavigationLink {
+                        NumberPadAlertControllerView()
+                    } label: {
+                        Text("NumberPadAlertControllerView")
+                    }
+                    NavigationLink {
+                        SohSampleView()
+                    } label: {
+                        Text("soh's Playground")
                     }
                 }
                 .navigationTitle("Playgrounds")
