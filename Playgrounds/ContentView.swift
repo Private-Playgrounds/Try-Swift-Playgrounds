@@ -44,6 +44,11 @@ public struct ContentView: View {
                     } label: {
                         Text("LiquidGlassSample")
                     }
+                    NavigationLink{
+                        FullscreenSheetControllerRikusouda()
+                    } label: {
+                        Text("FullscreenSheetController by rikusouda")
+                    }
                 }
                 .navigationTitle("Playgrounds")
             }
