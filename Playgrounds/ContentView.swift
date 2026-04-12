@@ -10,9 +10,24 @@ public struct ContentView: View {
                     // Add one entry per participant here.
                     // Keep your view in `Playgrounds/<ParticipantName>/`.
                     NavigationLink {
+                        TextFieldWithVisibilityToggle()
+                    } label: {
+                        Text("TextField with visibility toggle")
+                    }
+                    NavigationLink {
+                        CustomAlertView()
+                    } label: {
+                        Text("tomoEng11 CustomAlert")
+                    }
+                    NavigationLink {
                         UIAlertControllerSampleView()
                     } label: {
                         Text("Custom UIAlertController")
+                    }
+                    NavigationLink {
+                        KarlAlertControllerSampleView()
+                    } label: {
+                        Text("Video UIAlertController")
                     }
                     NavigationLink {
                         CustomKBBackgroundView()
@@ -38,6 +53,14 @@ public struct ContentView: View {
                         Satomasahiro2005View()
                     } label: {
                         Text("@satomasahiro2005")
+                        FullscreenSheetControllerRikusouda()
+                    } label: {
+                        Text("FullscreenSheetController by rikusouda")
+                    }
+                    NavigationLink {
+                        NumberPadAlertControllerView()
+                    } label: {
+                        Text("NumberPadAlertControllerView")
                     }
                 }
                 .navigationTitle("Playgrounds")
