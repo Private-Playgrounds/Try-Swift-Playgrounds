@@ -15,6 +15,11 @@ public struct ContentView: View {
                         Text("Custom UIAlertController")
                     }
                     NavigationLink {
+                        KarlAlertControllerSampleView()
+                    } label: {
+                        Text("Video UIAlertController")
+                    }
+                    NavigationLink {
                         CustomKBBackgroundView()
                     } label: {
                         Text("Custom KeyboardAppearance")
