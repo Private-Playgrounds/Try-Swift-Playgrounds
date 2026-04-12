@@ -34,6 +34,11 @@ public struct ContentView: View {
                     } label: {
                         Text("LiquidGlassSample")
                     }
+                    NavigationLink {
+                        VideoTabBarView()
+                    } label: {
+                        Text("Video TabBar")
+                    }
                 }
                 .navigationTitle("Playgrounds")
             }
