@@ -53,13 +53,18 @@ public struct ContentView: View {
                         DancingGiginetAppIconView()
                     } label: {
                         Text("Dancing giginet AppIcon")
+                    }
+                    NavigationLink {
                         QuietlySetVariantIndexView()
                     } label: {
                         Text("_quietlySetVariantIndex")
+                    }
                     NavigationLink{
                         Satomasahiro2005View()
                     } label: {
                         Text("@satomasahiro2005")
+                    }
+                    NavigationLink {
                         FullscreenSheetControllerRikusouda()
                     } label: {
                         Text("FullscreenSheetController by rikusouda")
