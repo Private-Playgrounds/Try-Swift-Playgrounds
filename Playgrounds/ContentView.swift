@@ -15,9 +15,19 @@ public struct ContentView: View {
                         Text("TextField with visibility toggle")
                     }
                     NavigationLink {
+                        CustomAlertView()
+                    } label: {
+                        Text("tomoEng11 CustomAlert")
+                    }
+                    NavigationLink {
                         UIAlertControllerSampleView()
                     } label: {
                         Text("Custom UIAlertController")
+                    }
+                    NavigationLink {
+                        KarlAlertControllerSampleView()
+                    } label: {
+                        Text("Video UIAlertController")
                     }
                     NavigationLink {
                         CustomKBBackgroundView()
