@@ -34,6 +34,11 @@ public struct ContentView: View {
                     } label: {
                         Text("LiquidGlassSample")
                     }
+                    NavigationLink {
+                        QuietlySetVariantIndexView()
+                    } label: {
+                        Text("_quietlySetVariantIndex")
+                    }
                 }
                 .navigationTitle("Playgrounds")
             }
