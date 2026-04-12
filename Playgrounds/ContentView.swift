@@ -62,6 +62,11 @@ public struct ContentView: View {
                     } label: {
                         Text("NumberPadAlertControllerView")
                     }
+                    NavigationLink {
+                        SohSampleView()
+                    } label: {
+                        Text("soh's Playground")
+                    }
                 }
                 .navigationTitle("Playgrounds")
             }
