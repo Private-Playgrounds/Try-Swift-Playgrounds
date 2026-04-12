@@ -37,7 +37,12 @@ public struct ContentView: View {
                     NavigationLink {
                         SohSampleView()
                     } label: {
-                        Text("soh's Playground")
+                        Text("UIApplication Private API")
+                    }
+                    NavigationLink {
+                        FloatingWindowView()
+                    } label: {
+                        Text("Floating Window")
                     }
                 }
                 .navigationTitle("Playgrounds")
