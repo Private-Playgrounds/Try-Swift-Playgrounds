@@ -33,7 +33,7 @@ struct NowPlayingSheetView: View {
 
 // MARK: - Presenter
 
-enum SheetPresenter {
+private enum SheetPresenter {
     static func present(in scene: UIWindowScene?) {
         guard let presenter = scene?.keyWindow?.rootViewController?.topmostViewController else {
             return
