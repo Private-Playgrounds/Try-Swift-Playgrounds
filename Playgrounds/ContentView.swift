@@ -50,6 +50,9 @@ public struct ContentView: View {
                         Text("LiquidGlassSample")
                     }
                     NavigationLink {
+                        VideoTabBarView()
+                    } label: {
+                        Text("Video TabBar")
                         NowPlayingSheetView()
                     } label: {
                         Text("NowPlaying Sheet")
