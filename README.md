@@ -1,3 +1,5 @@
+<img width="2940" height="1540" alt="image" src="https://github.com/user-attachments/assets/3e4013b4-8f81-49df-a946-db54ca45a68f" />
+
 # Try Swift Playgrounds
 
 To everyone joining iOS Private Playgrounds, welcome.
