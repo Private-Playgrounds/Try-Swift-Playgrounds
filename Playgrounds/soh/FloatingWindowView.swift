@@ -78,21 +78,35 @@ private struct PanelView: View {
 
     var body: some View {
         GeometryReader { geo in
-            SceneSnapshotView()
-                .frame(width: panelSize.width, height: panelSize.height)
-                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-                .shadow(color: .black.opacity(0.35), radius: 10, y: 5)
-                .position(position)
-                .gesture(
-                    DragGesture()
-                        .onChanged { v in
-                            position.x += v.translation.width
-                            position.y += v.translation.height
-                        }
-                )
-                .onAppear {
-                    position = CGPoint(x: geo.size.width / 2, y: geo.size.height * 0.4)
+            VStack(spacing: 0) {
+                HStack {
+                    Text("Floating")
+                        .font(.caption2.bold())
+                        .foregroundStyle(.secondary)
+                    Spacer()
                 }
+                .padding(.horizontal, 10)
+                .padding(.vertical, 6)
+                .background(.bar)
+
+                SceneSnapshotView()
+                    .frame(height: panelSize.height - 30)
+                    .clipped()
+            }
+            .frame(width: panelSize.width, height: panelSize.height)
+            .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+            .shadow(color: .black.opacity(0.35), radius: 10, y: 5)
+            .position(position)
+            .gesture(
+                DragGesture()
+                    .onChanged { v in
+                        position.x += v.translation.width
+                        position.y += v.translation.height
+                    }
+            )
+            .onAppear {
+                position = CGPoint(x: geo.size.width / 2, y: geo.size.height * 0.4)
+            }
         }
         .ignoresSafeArea()
     }
