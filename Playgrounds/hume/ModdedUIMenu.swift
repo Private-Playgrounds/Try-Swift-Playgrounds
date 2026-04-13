@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UIKit
+import Combine
 
 struct ModdedUIMenuView: View {
     var body: some View {
@@ -14,6 +15,11 @@ struct ModdedUIMenuView: View {
             .navigationTitle("Modded UIMenu")
             .navigationBarTitleDisplayMode(.inline)
     }
+}
+
+@MainActor
+private final class ModdedUIMenuConfiguration: ObservableObject {
+    @Published var prefersNavBarAnchoredShareSheet = true
 }
 
 private struct ModdedUIMenuViewControllerRepresentable: UIViewControllerRepresentable {
@@ -30,6 +36,8 @@ private final class ModdedUIMenuViewController: UIViewController {
     private let actions = MenuAction.sampleActions
     private var hasConfiguredNavigationItem = false
     private let shareURL = URL(string: "https://github.com/Private-Playgrounds/Try-Swift-Playgrounds")!
+    private let shareSheetPopoverDelegate = ShareSheetPopoverDelegate()
+    private let configuration = ModdedUIMenuConfiguration()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +52,7 @@ private final class ModdedUIMenuViewController: UIViewController {
     }
 
     private func configureContent() {
-        let hostingController = UIHostingController(rootView: ModdedUIMenuBodyView())
+        let hostingController = UIHostingController(rootView: ModdedUIMenuBodyView(configuration: configuration))
         addChild(hostingController)
 
         let hostedView = hostingController.view!
@@ -79,29 +87,28 @@ private final class ModdedUIMenuViewController: UIViewController {
             }
             let children = actions.map { $0.menuElement(owner: self) }
             let menu = UIMenu(title: "", children: children)
-            menu.headerViewProvider = {
-                MenuHeaderView(frame: CGRect(x: 0, y: 0, width: 0, height: 84))
+            menu.headerViewProvider = { [weak self] in
+                MenuHeaderView(
+                    frame: CGRect(x: 0, y: 0, width: 0, height: 84),
+                    onShareTap: { sourceView, sourceRect in
+                        self?.presentShareSheet(from: sourceView, sourceRect: sourceRect)
+                    }
+                )
             }
             return menu
         }
     }
 
-    fileprivate func presentShareSheet() {
-        if
-            let interaction = activeContextMenuInteraction(),
-            let presentation = interaction.outgoingPresentation
-        {
-            presentation.addDismissalCompletion { [weak self] in
-                self?.presentShareSheetNow()
-            }
-            interaction.dismissPrivateMenu()
-            return
-        }
+    fileprivate func presentShareSheet(from sourceView: UIView? = nil, sourceRect: CGRect? = nil) {
+        let presenter = parent ?? self
+        let anchorRect = anchorRectInPresenter(sourceView: sourceView, sourceRect: sourceRect, presenter: presenter)
 
-        presentShareSheetNow()
+        dismissVisibleTitleMenuIfNeeded(from: presenter) { [weak self] in
+            self?.presentShareSheetNow(anchorRect: anchorRect)
+        }
     }
 
-    private func presentShareSheetNow() {
+    private func presentShareSheetNow(anchorRect: CGRect?) {
         let presenter = parent ?? self
         guard presenter.presentedViewController == nil else {
             return
@@ -111,14 +118,128 @@ private final class ModdedUIMenuViewController: UIViewController {
             activityItems: [shareURL],
             applicationActivities: nil
         )
-        activityViewController.popoverPresentationController?.sourceView = presenter.view
-        activityViewController.popoverPresentationController?.sourceRect = CGRect(
+
+        guard configuration.prefersNavBarAnchoredShareSheet else {
+            presenter.present(activityViewController, animated: true)
+            return
+        }
+
+        activityViewController.setValue(true, forKey: "allowsCustomPresentationStyle")
+        activityViewController.modalPresentationStyle = .popover
+        let sourceRect = anchorRect ?? CGRect(
             x: presenter.view.bounds.midX,
             y: presenter.view.bounds.midY,
             width: 1,
             height: 1
         )
+        if let popoverPresentationController = activityViewController.popoverPresentationController {
+            forcePopoverPresentationsIfAvailable()
+            popoverPresentationController.delegate = shareSheetPopoverDelegate
+            popoverPresentationController.permittedArrowDirections = .up
+            popoverPresentationController.canOverlapSourceViewRect = true
+            popoverPresentationController.popoverLayoutMargins = UIEdgeInsets(top: 8, left: 12, bottom: 12, right: 12)
+            invokePrivateSetter("_setAdaptivityEnabled:", bool: false, on: popoverPresentationController)
+            invokePrivateSetter("_setShouldHideArrow:", bool: true, on: popoverPresentationController)
+            if let preferredSourceItem = preferredTitleMenuPresentationSourceItem() {
+                popoverPresentationController.sourceItem = preferredSourceItem
+            } else if let titleControl = titleMenuControl(in: presenter) {
+                popoverPresentationController.sourceView = presenter.view
+                popoverPresentationController.sourceRect = presenter.view.convert(titleControl.bounds, from: titleControl)
+            } else {
+                popoverPresentationController.sourceView = presenter.view
+                popoverPresentationController.sourceRect = sourceRect
+            }
+        }
         presenter.present(activityViewController, animated: true)
+    }
+
+    private func forcePopoverPresentationsIfAvailable() {
+        let selector = NSSelectorFromString("_setAlwaysAllowPopoverPresentations:")
+        _ = (UIPopoverPresentationController.self as AnyObject).perform(selector, with: NSNumber(value: true))
+    }
+
+    private func invokePrivateSetter(_ selectorName: String, bool value: Bool, on object: NSObject) {
+        let selector = NSSelectorFromString(selectorName)
+        _ = object.perform(selector, with: NSNumber(value: value))
+    }
+
+    private func dismissVisibleTitleMenuIfNeeded(from presenter: UIViewController, completion: @escaping () -> Void) {
+        if
+            let interaction = activeContextMenuInteraction(),
+            let presentation = interaction.outgoingPresentation
+        {
+            presentation.addDismissalCompletion(completion)
+            interaction.dismissPrivateMenu()
+            return
+        }
+
+        guard let presentedViewController = presenter.presentedViewController else {
+            completion()
+            return
+        }
+
+        let presentedClassName = NSStringFromClass(type(of: presentedViewController))
+        guard presentedClassName.contains("_UIContextMenu") else {
+            completion()
+            return
+        }
+
+        presentedViewController.dismiss(animated: true, completion: completion)
+    }
+
+    private func anchorRectInPresenter(sourceView: UIView?, sourceRect: CGRect?, presenter: UIViewController) -> CGRect? {
+        guard let sourceView, let sourceRect else {
+            return nil
+        }
+        if sourceView.window === presenter.view.window {
+            return presenter.view.convert(sourceRect, from: sourceView)
+        }
+
+        guard let window = sourceView.window else {
+            return nil
+        }
+
+        let sourceRectInWindow = sourceView.convert(sourceRect, to: window)
+        return presenter.view.convert(sourceRectInWindow, from: window)
+    }
+
+    private func preferredTitleMenuPresentationSourceItem() -> (any UIPopoverPresentationControllerSourceItem)? {
+        guard let titleControl = titleMenuControl(in: parent ?? self) else {
+            return nil
+        }
+
+        let selector = NSSelectorFromString("_preferredPresentationSourceItem")
+        guard
+            titleControl.responds(to: selector),
+            let sourceItem = titleControl.perform(selector)?.takeUnretainedValue()
+        else {
+            return nil
+        }
+
+        return sourceItem as? any UIPopoverPresentationControllerSourceItem
+    }
+
+    private func titleMenuControl(in presenter: UIViewController) -> UIView? {
+        guard let navigationBar = presenter.navigationController?.navigationBar else {
+            return nil
+        }
+
+        return firstSubview(in: navigationBar) { view in
+            NSStringFromClass(type(of: view)).contains("_UINavigationBarTitleControl")
+        }
+    }
+
+    private func firstSubview(in root: UIView, where predicate: (UIView) -> Bool) -> UIView? {
+        if predicate(root) {
+            return root
+        }
+        for subview in root.subviews {
+            if let match = firstSubview(in: subview, where: predicate) {
+                return match
+            }
+        }
+
+        return nil
     }
 
     private func activeContextMenuInteraction() -> UIContextMenuInteraction? {
@@ -146,6 +267,20 @@ private final class ModdedUIMenuViewController: UIViewController {
         }
 
         return nil
+    }
+}
+
+@MainActor
+private final class ShareSheetPopoverDelegate: NSObject, UIPopoverPresentationControllerDelegate {
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        .none
+    }
+
+    func adaptivePresentationStyle(
+        for controller: UIPresentationController,
+        traitCollection: UITraitCollection
+    ) -> UIModalPresentationStyle {
+        .none
     }
 }
 
@@ -191,16 +326,21 @@ private struct MenuAction {
 }
 
 private struct ModdedUIMenuBodyView: View {
+    @ObservedObject var configuration: ModdedUIMenuConfiguration
+
     var body: some View {
         VStack(spacing: 20) {
             Text("UINavigationItem.titleMenuProvider で custom header 付き UIMenu を表示します。")
                 .multilineTextAlignment(.center)
 
+            Toggle("NavBar 基準の表示を使う", isOn: $configuration.prefersNavBarAnchoredShareSheet)
+                .toggleStyle(.switch)
+
             Text("ナビゲーションタイトルをタップしてメニューを開いてください。")
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
-            Text("HeaderViewについているShareボタンが有効化できてないです。")
+            Text(configuration.prefersNavBarAnchoredShareSheet ? "ON: NavBar 付近を基準にポップオーバー表示します。" : "OFF: 標準的な共有シート表示に戻します。")
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
@@ -211,11 +351,24 @@ private struct ModdedUIMenuBodyView: View {
 }
 
 private final class MenuHeaderView: UIView {
-    override init(frame: CGRect) {
+    private let onShareTap: (UIView, CGRect) -> Void
+
+    init(frame: CGRect, onShareTap: @escaping (UIView, CGRect) -> Void) {
+        self.onShareTap = onShareTap
         super.init(frame: frame)
         backgroundColor = .clear
 
-        let hostingController = UIHostingController(rootView: MenuHeaderContentView())
+        let hostingController = UIHostingController(
+            rootView: MenuHeaderContentView(
+                onShareTap: { [weak self] in
+                    guard let self else {
+                        return
+                    }
+                    let anchorRect = bounds.insetBy(dx: bounds.width - 44, dy: 0)
+                    onShareTap(self, anchorRect)
+                }
+            )
+        )
         let hostedView = hostingController.view!
         hostedView.translatesAutoresizingMaskIntoConstraints = false
         hostedView.backgroundColor = .clear
@@ -240,6 +393,8 @@ private final class MenuHeaderView: UIView {
 }
 
 private struct MenuHeaderContentView: View {
+    let onShareTap: () -> Void
+
     var body: some View {
         HStack(alignment: .center, spacing: 12) {
             Image(.sampleRiko)
@@ -258,11 +413,14 @@ private struct MenuHeaderContentView: View {
 
                     Spacer(minLength: 0)
 
-                    Image(systemName: "square.and.arrow.up")
-                        .font(.system(size: 13, weight: .semibold))
-                        .foregroundStyle(.primary)
-                        .frame(width: 28, height: 28)
-                        .clipShape(Circle())
+                    Button(action: onShareTap) {
+                        Image(systemName: "square.and.arrow.up")
+                            .font(.system(size: 13, weight: .semibold))
+                            .foregroundStyle(.primary)
+                            .frame(width: 28, height: 28)
+                            .contentShape(Rectangle())
+                    }
+                    .buttonStyle(.plain)
                 }
             }
         }
