@@ -103,6 +103,11 @@ public struct ContentView: View {
                     } label: {
                         Text("Map AppleLogo")
                     }
+                    NavigationLink {
+                        ModdedUIMenuView()
+                    } label: {
+                        Text("hume Playground")
+                    }
                 }
                 .navigationTitle("Playgrounds")
             }
