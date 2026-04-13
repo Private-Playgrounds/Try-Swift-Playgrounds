@@ -98,6 +98,7 @@ public struct ContentView: View {
                         UISheetPresentationControllerSample()
                     } label: {
                         Text("auramagi UISheetPresentationControllerSample")
+                    }
                     NavigationLink {
                         MapAppleLogoAllTypeView()
                     } label: {
