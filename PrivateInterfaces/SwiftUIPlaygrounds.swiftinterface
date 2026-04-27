@@ -62,7 +62,7 @@ public extension Material {
         public func adaptive(_: Swift.Bool) -> SwiftUIPlaygrounds.Material._GlassVariant
         public func forceScrim() -> SwiftUIPlaygrounds.Material._GlassVariant
         public func subvariant(_: Swift.String) -> SwiftUIPlaygrounds.Material._GlassVariant
-        public func focusOffset(_: SwiftUI.UnitPoint) -> SwiftUIPlaygrounds.Material._GlassVariant
+        public func focusOffset(_: SwiftUIPlaygrounds.UnitPoint) -> SwiftUIPlaygrounds.Material._GlassVariant
         public func forceSubdued() -> SwiftUIPlaygrounds.Material._GlassVariant
         public func sharpTinting(_: Swift.Bool) -> SwiftUIPlaygrounds.Material._GlassVariant
         public func contentHidden(_: Swift.Bool) -> SwiftUIPlaygrounds.Material._GlassVariant
@@ -71,14 +71,14 @@ public extension Material {
         public func interactionState(_: SwiftUIPlaygrounds.Material._GlassVariant.InteractionState) -> SwiftUIPlaygrounds.Material._GlassVariant
         public func excludingEdgeBleed() -> SwiftUIPlaygrounds.Material._GlassVariant
         public func excludingForeground() -> SwiftUIPlaygrounds.Material._GlassVariant
-        public func fixedBackgroundColor(_: SwiftUI.Color) -> SwiftUIPlaygrounds.Material._GlassVariant
+        public func fixedBackgroundColor(_: SwiftUIPlaygrounds.Color) -> SwiftUIPlaygrounds.Material._GlassVariant
         public func forceIncreasedContrast() -> SwiftUIPlaygrounds.Material._GlassVariant
         public func highlightsDisplayAngle(_: Swift.Bool) -> SwiftUIPlaygrounds.Material._GlassVariant
         public func mix(with: SwiftUIPlaygrounds.Material._GlassVariant, by: Swift.Double) -> SwiftUIPlaygrounds.Material._GlassVariant
         public func hash(into: inout Swift.Hasher)
         public func size(_: SwiftUIPlaygrounds.Material._GlassVariant.Size) -> SwiftUIPlaygrounds.Material._GlassVariant
-        public func tint(_: SwiftUI.Color) -> SwiftUIPlaygrounds.Material._GlassVariant
-        public func adaptive(colorScheme: SwiftUI.ColorScheme) -> SwiftUIPlaygrounds.Material._GlassVariant
+        public func tint(_: SwiftUIPlaygrounds.Color) -> SwiftUIPlaygrounds.Material._GlassVariant
+        public func adaptive(colorScheme: SwiftUIPlaygrounds.ColorScheme) -> SwiftUIPlaygrounds.Material._GlassVariant
         public func identity() -> SwiftUIPlaygrounds.Material._GlassVariant
 
         public static let controlCenter: SwiftUIPlaygrounds.Material._GlassVariant
@@ -98,11 +98,11 @@ public extension Material {
         public static let abuttedSidebar: SwiftUIPlaygrounds.Material._GlassVariant
         public static let clear: SwiftUIPlaygrounds.Material._GlassVariant
 
-        public static func appIcons(tint: SwiftUI.Color?) -> SwiftUIPlaygrounds.Material._GlassVariant
-        public static func highlightAngle(dynamic: Swift.Bool) -> SwiftUI.Angle
+        public static func appIcons(tint: SwiftUIPlaygrounds.Color?) -> SwiftUIPlaygrounds.Material._GlassVariant
+        public static func highlightAngle(dynamic: Swift.Bool) -> SwiftUIPlaygrounds.Angle
         public static func == (_: SwiftUIPlaygrounds.Material._GlassVariant, _: SwiftUIPlaygrounds.Material._GlassVariant) -> Swift.Bool
-        public static func text(tint: SwiftUI.Color?, frost: Swift.Float?, normalizedFactor: Swift.Float?) -> SwiftUIPlaygrounds.Material._GlassVariant
-        public static func widgets(tint: SwiftUI.Color?) -> SwiftUIPlaygrounds.Material._GlassVariant
+        public static func text(tint: SwiftUIPlaygrounds.Color?, frost: Swift.Float?, normalizedFactor: Swift.Float?) -> SwiftUIPlaygrounds.Material._GlassVariant
+        public static func widgets(tint: SwiftUIPlaygrounds.Color?) -> SwiftUIPlaygrounds.Material._GlassVariant
 
         public static let tertiaryBackground: SwiftUIPlaygrounds.Material
         public static let secondaryBackground: SwiftUIPlaygrounds.Material
@@ -311,7 +311,7 @@ public struct _Glass {
     }
     public struct ID {
         public var variant: SwiftUIPlaygrounds._Glass.Variant.ID
-        public var tintColor: SwiftUI.Color?
+        public var tintColor: SwiftUIPlaygrounds.Color?
         public var interaction: SwiftUIPlaygrounds._Glass.InteractionState.Role?
         public var options: SwiftUIPlaygrounds._Glass.Options
         public var contentEffect: SwiftUIPlaygrounds._Glass.ContentEffect
@@ -324,7 +324,7 @@ public struct _Glass {
     }
     public var variant: SwiftUIPlaygrounds._Glass.Variant
     public var interaction: SwiftUIPlaygrounds._Glass.InteractionState?
-    public var tintColor: SwiftUI.Color?
+    public var tintColor: SwiftUIPlaygrounds.Color?
     public var options: SwiftUIPlaygrounds._Glass.Options
     public var contentEffect: SwiftUIPlaygrounds._Glass.ContentEffect
 
@@ -335,7 +335,7 @@ public struct _Glass {
     public func interaction(_: SwiftUIPlaygrounds._Glass.InteractionState?) -> SwiftUIPlaygrounds._Glass
     public func interactive(_: Swift.Bool) -> SwiftUIPlaygrounds._Glass
     public func mix(with: SwiftUIPlaygrounds._Glass, by: Swift.Double) -> SwiftUIPlaygrounds._Glass
-    public func tintColor(_: SwiftUI.Color?) -> SwiftUIPlaygrounds._Glass
+    public func tintColor(_: SwiftUIPlaygrounds.Color?) -> SwiftUIPlaygrounds._Glass
 
     public static var identity: SwiftUIPlaygrounds._Glass {
         get
